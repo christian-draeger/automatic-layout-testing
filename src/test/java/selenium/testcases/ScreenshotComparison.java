@@ -33,6 +33,7 @@ public class ScreenshotComparison {
 
         @Before
         public void before() {
+            // take a screenshot with chrome
             ChromeDriverManager.getInstance().setup();
             final ChromeDriver chromeDriver = new ChromeDriver();
             chromeDriver.manage().window().setSize(new Dimension(800, 800));
@@ -51,6 +52,8 @@ public class ScreenshotComparison {
 
         @Test
         public void checkLogin() throws Exception {
+
+            // compare chrome screenshot with firefox screenshot
 
             MarionetteDriverManager.getInstance().setup();
             FirefoxDriver firefoxDriver = new FirefoxDriver();
