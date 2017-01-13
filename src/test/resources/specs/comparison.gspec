@@ -1,0 +1,6 @@
+@objects
+    homepage body
+
+= Image Test =
+    homepage:
+        image file target/chrome.png, error 5%, stretch

@@ -1,0 +1,12 @@
+@objects
+
+    header          #roottop
+    logo            button[title="Startseite"] img
+
+= Startpage =
+
+    header:
+        contains logo
+
+    logo:
+        width 70px
