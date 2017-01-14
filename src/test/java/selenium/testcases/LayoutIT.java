@@ -1,5 +1,7 @@
 package selenium.testcases;
 
+import static selenium.driver.WebDriverBuilder.Browser.PHANTOMJS;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
@@ -11,8 +13,8 @@ import utils.TestUtils;
 
 public class LayoutIT extends LayoutTestSetup {
 
-    Login login = PageFactory.initElements(getDriver(), Login.class);
-    StartPage startPage = PageFactory.initElements(getDriver(), StartPage.class);
+    Login login = PageFactory.initElements(getDriver(PHANTOMJS), Login.class);
+    StartPage startPage = PageFactory.initElements(getDriver(PHANTOMJS), StartPage.class);
 
     @Before
     public void setup() {

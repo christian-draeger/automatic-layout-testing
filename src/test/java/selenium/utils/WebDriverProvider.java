@@ -5,21 +5,17 @@ import org.junit.runner.Description;
 import org.openqa.selenium.WebDriver;
 
 import selenium.driver.WebDriverBuilder;
-import selenium.driver.WebDriverConfig;
 
 public class WebDriverProvider extends TestWatcher {
     private final WebDriverBuilder webDriverBuilder;
     private WebDriver driver;
 
-    public WebDriverProvider(final WebDriverConfig webDriverConfig) {
-        this.webDriverBuilder = new WebDriverBuilder(webDriverConfig);
+    public WebDriverProvider() {
+        this.webDriverBuilder = new WebDriverBuilder();
     }
 
-    public WebDriver getDriver() {
-        if (driver == null) {
-            driver = webDriverBuilder.toWebDriver();
-        }
-        return driver;
+    public WebDriver getDriver(WebDriverBuilder.Browser browser) {
+        return webDriverBuilder.toWebDriver(browser);
     }
 
 

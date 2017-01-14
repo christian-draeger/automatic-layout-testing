@@ -1,6 +1,10 @@
+# error 	--> how many pixels are allowed to be not exactly the same as on compared screenshot
+# tolerance --> is the maximum allowed color difference of two compared pixels
+# stretch	--> scale compared pictures on same size if necessary
+
 @objects
     homepage body
 
 = Image Test =
     homepage:
-        image file chrome.png, error 5%, stretch
+        image file loginPage-chrome.png, file loginPage-opera.png, error 2%, stretch, tolerance 120
