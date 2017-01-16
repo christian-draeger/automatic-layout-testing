@@ -7,4 +7,4 @@
 
 = Image Test =
     homepage:
-        image file loginPage-chrome.png, file loginPage-opera.png, error 2%, stretch, tolerance 120
+        image file loginPage-chrome.png, error 2%, stretch, tolerance 120

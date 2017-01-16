@@ -2,7 +2,6 @@ package selenium.testcases;
 
 import static selenium.driver.WebDriverBuilder.Browser.CHROME;
 import static selenium.driver.WebDriverBuilder.Browser.FIREFOX;
-import static selenium.driver.WebDriverBuilder.Browser.OPERA;
 
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class ScreenshotComparison extends SeleniumTestWrapper {
     public void collectScreenshotsToCompare() {
 
         takeScreenshotWith(CHROME);
-        takeScreenshotWith(OPERA);
+        // takeScreenshotWith(OPERA);
 
     }
 
