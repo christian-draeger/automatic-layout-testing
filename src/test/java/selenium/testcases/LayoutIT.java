@@ -1,55 +1,57 @@
 package selenium.testcases;
 
-import static selenium.driver.WebDriverBuilder.Browser.PHANTOMJS;
+import static selenium.driver.WebDriverBuilder.Browser.CHROME;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import selenium.LayoutTestSetup;
+import selenium.SeleniumTestWrapper;
 import selenium.pageobjects.Login;
 import selenium.pageobjects.StartPage;
-import utils.TestUtils;
 
-public class LayoutIT extends LayoutTestSetup {
+public class LayoutIT extends SeleniumTestWrapper {
 
-    Login login = PageFactory.initElements(getDriver(PHANTOMJS), Login.class);
-    StartPage startPage = PageFactory.initElements(getDriver(PHANTOMJS), StartPage.class);
+    WebDriver driver = getDriver(CHROME);
+
+    Login login = PageFactory.initElements(driver, Login.class);
+    StartPage startPage = PageFactory.initElements(driver, StartPage.class);
 
     @Before
     public void setup() {
-        login.open();
-        TestUtils.sleep(5000);
-
+        driver.get(login.getBaseurl());
+        sleep(1000);
     }
 
     @Test
     public void checkLogoOnLoginPage() throws Exception {
-        checkSpecFile("login");
+        checkSpecFile(driver, "login");
     }
 
     @Test
     public void checkLogoOnStartpage() throws Exception {
         login.loginTestUser();
-        TestUtils.sleep(1000);
-        checkSpecFile("startpage");
+        sleep(1000);
+        checkSpecFile(driver, "startpage");
     }
 
     @Test
     public void checkLogoOnProjecsPage() throws Exception {
         login.loginTestUser();
-        TestUtils.sleep(1000);
+        sleep(1000);
         startPage.clickProjekte();
-        TestUtils.sleep(1000);
+        sleep(1000);
         //iFRAME
-        startPage.switchToFrame();
+        driver.switchTo().frame(startPage.getIFrame());
         startPage.clickSearchButton();
-        TestUtils.sleep(1000);
-        checkSpecFile("projects");
+        sleep(1000);
+        checkSpecFile(driver, "projects");
     }
 
-
-
-
-
+    @After
+    public void quitBrowser() {
+        driver.quit();
+    }
 }

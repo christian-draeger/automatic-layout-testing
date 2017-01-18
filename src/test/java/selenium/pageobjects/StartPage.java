@@ -1,17 +1,13 @@
 package selenium.pageobjects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import selenium.Pages;
 
 /**
  * Created by jose-luis.nunez-icho on 09.01.17.
  */
-public class StartPage extends Pages {
-    public StartPage(final WebDriver driver) {
-        super(driver);
-    }
+public class StartPage {
+
 
     @FindBy(css = ".nano-content div[style*='projekte']")
     private WebElement projekteNav;
@@ -26,11 +22,11 @@ public class StartPage extends Pages {
     @FindBy(css = "span.baButton")
     private WebElement searchButton;
 
-    public void clickSearchButton() {
-        searchButton.click();
+    public WebElement getIFrame(){
+        return iframe;
     }
 
-    public void switchToFrame() {
-        driver.switchTo().frame(iframe);
+    public void clickSearchButton() {
+        searchButton.click();
     }
 }

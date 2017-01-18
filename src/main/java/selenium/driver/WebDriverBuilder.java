@@ -30,7 +30,7 @@ public class WebDriverBuilder {
 
     private String name;
 
-
+    // for junit testreport
     public void setName(String name) {
         this.name = name;
     }

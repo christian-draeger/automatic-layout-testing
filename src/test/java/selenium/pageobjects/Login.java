@@ -1,19 +1,15 @@
 package selenium.pageobjects;
 
-import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import selenium.Pages;
 
-public class Login extends Pages {
+public class Login {
 
-	public Login(final WebDriver driver) {
-		super(driver);
-	}
 
-	public void open(){
-		super.open();
+	private String baseUrl = "https://blueantwebinar.proventis.net/webinar5//psap";
+
+	public String getBaseurl(){
+		return baseUrl;
 	}
 
 	@FindBy(name = "MT_BENUTZERNAME")

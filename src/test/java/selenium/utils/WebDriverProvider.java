@@ -23,12 +23,14 @@ public class WebDriverProvider extends TestWatcher {
         return driver != null;
     }
 
+    // name der tests für besseren junit(testergebnis) report
     @Override
     protected void starting(final Description description) {
         String methodName = description.getClassName() + "." + description.getMethodName();
         this.webDriverBuilder.setName(methodName);
     }
 
+    // schließ browser nach test
     @Override
     protected void finished(final Description description) {
         if (this.driver != null) {
